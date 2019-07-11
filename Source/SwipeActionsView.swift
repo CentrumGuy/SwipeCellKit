@@ -109,7 +109,7 @@ class SwipeActionsView: UIView {
         
         super.init(frame: .zero)
         
-        clipsToBounds = true
+        clipsToBounds = false
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = options.backgroundColor ?? #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         
@@ -184,8 +184,9 @@ class SwipeActionsView: UIView {
     }
     
     func buttonEdgeInsets(fromOptions options: SwipeOptions) -> UIEdgeInsets {
-        let padding = options.buttonPadding ?? 8
-        return UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        let leftPadding = options.buttonPaddingLeft ?? 8
+        let rightPadding = options.buttonPaddingRight ?? 8
+        return UIEdgeInsets(top: 8, left: leftPadding, bottom: 8, right: rightPadding)
     }
     
     func setExpanded(expanded: Bool, feedback: Bool = false) {
