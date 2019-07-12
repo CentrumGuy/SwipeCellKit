@@ -62,7 +62,7 @@ class SwipeController: NSObject {
         
         configure()
     }
-
+    
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
         guard let target = actionsContainerView, var swipeable = self.swipeable else { return }
         
@@ -194,7 +194,7 @@ class SwipeController: NSObject {
             let scrollView = self.scrollView else {
                 return
         }
-
+        
         let options = delegate?.swipeController(self, editActionsOptionsForSwipeableFor: orientation) ?? SwipeOptions()
         
         swipeable.actionsView?.removeFromSuperview()
@@ -291,7 +291,7 @@ class SwipeController: NSObject {
             actionsContainerView.center = CGPoint(x: targetOffset, y: actionsContainerView.center.y)
             swipeable.actionsView?.visibleWidth = abs(actionsContainerView.frame.minX)
             swipeable.layoutIfNeeded()
-        }        
+        }
     }
     
     func stopAnimatorIfNeeded() {
@@ -394,18 +394,18 @@ extension SwipeController: SwipeActionsViewDelegate {
     
     func perform(action: SwipeAction, hide: Bool) {
         guard let indexPath = swipeable?.indexPath else { return }
-
+        
         if hide {
             hideSwipe(animated: true)
         }
-
+        
         action.handler?(action, indexPath)
     }
     
     func performFillAction(action: SwipeAction, fillOption: SwipeExpansionStyle.FillOptions) {
         guard let swipeable = self.swipeable, let actionsContainerView = self.actionsContainerView else { return }
         guard let actionsView = swipeable.actionsView, let indexPath = swipeable.indexPath else { return }
-
+        
         let newCenter = swipeable.bounds.midX - (swipeable.bounds.width + actionsView.minimumButtonWidth) * actionsView.orientation.scale
         
         action.completionHandler = { [weak self] style in

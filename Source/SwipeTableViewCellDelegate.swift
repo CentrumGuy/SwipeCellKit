@@ -42,15 +42,15 @@ public protocol SwipeTableViewCellDelegate: class {
     
     /**
      Tells the delegate that the table view is about to go into editing mode.
-
+     
      - parameter tableView: The table view object providing this information.
      
      - parameter indexPath: The index path of the row.
      
      - parameter orientation: The side of the cell.
-    */
+     */
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation)
-
+    
     /**
      Tells the delegate that the table view has left editing mode.
      

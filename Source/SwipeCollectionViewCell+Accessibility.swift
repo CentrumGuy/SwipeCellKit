@@ -51,9 +51,9 @@ extension SwipeCollectionViewCell {
             
             if actions.count > 0 {
                 return actions.compactMap({ SwipeAccessibilityCustomAction(action: $0,
-                                                                    indexPath: indexPath,
-                                                                    target: self,
-                                                                    selector: #selector(performAccessibilityCustomAction(accessibilityCustomAction:))) })
+                                                                           indexPath: indexPath,
+                                                                           target: self,
+                                                                           selector: #selector(performAccessibilityCustomAction(accessibilityCustomAction:))) })
             } else {
                 return super.accessibilityCustomActions
             }

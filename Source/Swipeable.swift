@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: - Internal 
+// MARK: - Internal
 
 protocol Swipeable {
     var state: SwipeState { get set }

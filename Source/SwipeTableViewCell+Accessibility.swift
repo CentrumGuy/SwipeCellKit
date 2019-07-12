@@ -13,7 +13,7 @@ extension SwipeTableViewCell {
         guard state != .center else {
             return super.accessibilityElementCount()
         }
-
+        
         return 1
     }
     
@@ -22,7 +22,7 @@ extension SwipeTableViewCell {
         guard state != .center else {
             return super.accessibilityElement(at: index)
         }
-
+        
         return actionsView
     }
     
@@ -31,7 +31,7 @@ extension SwipeTableViewCell {
         guard state != .center else {
             return super.index(ofAccessibilityElement: element)
         }
-
+        
         return element is SwipeActionsView ? 0 : NSNotFound
     }
 }
@@ -51,9 +51,9 @@ extension SwipeTableViewCell {
             
             if actions.count > 0 {
                 return actions.compactMap({ SwipeAccessibilityCustomAction(action: $0,
-                                                                    indexPath: indexPath,
-                                                                    target: self,
-                                                                    selector: #selector(performAccessibilityCustomAction(accessibilityCustomAction:))) })
+                                                                           indexPath: indexPath,
+                                                                           target: self,
+                                                                           selector: #selector(performAccessibilityCustomAction(accessibilityCustomAction:))) })
             } else {
                 return super.accessibilityCustomActions
             }

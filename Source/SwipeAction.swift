@@ -68,7 +68,7 @@ public class SwipeAction: NSObject {
     ///
     /// - note: Use this property to specify the background color for your button. If you do not specify a value for this property, the framework assigns a default color based on the value in the style property.
     public var backgroundColor: UIColor?
-  
+    
     /// The highlighted background color of the action button.
     ///
     /// - note: Use this property to specify the highlighted background color for your button.
@@ -86,11 +86,11 @@ public class SwipeAction: NSObject {
     
     /**
      Constructs a new `SwipeAction` instance.
-
+     
      - parameter style: The style of the action button.
      - parameter title: The title of the action button.
      - parameter handler: The closure to execute when the user taps the button associated with this action.
-    */
+     */
     public init(style: SwipeActionStyle, title: String?, handler: ((SwipeAction, IndexPath) -> Void)?) {
         self.title = title
         self.style = style
@@ -99,7 +99,7 @@ public class SwipeAction: NSObject {
     
     /**
      Calling this method performs the configured expansion completion animation including deletion, if necessary. Calling this method more than once has no effect.
- 
+     
      You should only call this method from the implementation of your action `handler` method.
      
      - parameter style: The desired style for completing the expansion action.
@@ -117,7 +117,7 @@ public class SwipeAction: NSObject {
 public enum ExpansionFulfillmentStyle {
     /// Implies the item will be deleted upon action fulfillment.
     case delete
-
+    
     /// Implies the item will be reset and the actions view hidden upon action fulfillment.
     case reset
 }

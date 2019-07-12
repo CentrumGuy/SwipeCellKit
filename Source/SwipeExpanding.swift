@@ -11,7 +11,7 @@ import UIKit
  Adopt the `SwipeExpanding` protocol in objects that implement custom appearance of actions during expansion.
  */
 public protocol SwipeExpanding {
-
+    
     /**
      Asks your object for the animation timing parameters.
      
@@ -21,7 +21,7 @@ public protocol SwipeExpanding {
      
      - parameter otherActionButtons: The other action buttons in the view, not including the action button being expanded.
      */
-
+    
     func animationTimingParameters(buttons: [UIButton], expanding: Bool) -> SwipeExpansionAnimationTimingParameters
     
     /**
@@ -30,7 +30,7 @@ public protocol SwipeExpanding {
      - parameter button: The expansion action button.
      
      - parameter expanding: The new expansion state.
-
+     
      - parameter otherActionButtons: The other action buttons in the view, not including the action button being expanded.
      */
     func actionButton(_ button: UIButton, didChange expanding: Bool, otherActionButtons: [UIButton])
@@ -69,7 +69,7 @@ public struct SwipeExpansionAnimationTimingParameters {
  A scale and alpha expansion object drives the custom appearance of the effected actions during expansion.
  */
 public struct ScaleAndAlphaExpansion: SwipeExpanding {
-
+    
     /// Returns a `ScaleAndAlphaExpansion` instance with default expansion options.
     public static var `default`: ScaleAndAlphaExpansion { return ScaleAndAlphaExpansion() }
     
@@ -98,8 +98,8 @@ public struct ScaleAndAlphaExpansion: SwipeExpanding {
         self.scale = scale
         self.interButtonDelay = interButtonDelay
     }
-
-    /// :nodoc:    
+    
+    /// :nodoc:
     public func animationTimingParameters(buttons: [UIButton], expanding: Bool) -> SwipeExpansionAnimationTimingParameters {
         var timingParameters = SwipeExpansionAnimationTimingParameters.default
         timingParameters.delay = expanding ? interButtonDelay : 0

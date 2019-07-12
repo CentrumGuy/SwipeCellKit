@@ -154,10 +154,10 @@ open class SwipeCollectionViewCell: UICollectionViewCell {
     /// :nodoc:
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard
-          let actionsView = actionsView,
-          isHidden == false
-        else { return super.hitTest(point, with: event) }
-
+            let actionsView = actionsView,
+            isHidden == false
+            else { return super.hitTest(point, with: event) }
+        
         let modifiedPoint = actionsView.convert(point, from: self)
         return actionsView.hitTest(modifiedPoint, with: event) ?? super.hitTest(point, with: event)
     }
@@ -242,4 +242,3 @@ extension SwipeCollectionViewCell: SwipeControllerDelegate {
         collectionView?.deleteItems(at: [indexPath])
     }
 }
-

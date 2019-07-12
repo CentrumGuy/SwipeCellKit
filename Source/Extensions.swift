@@ -7,6 +7,17 @@
 
 import UIKit
 
+extension UITableViewCell {
+    var tableView: UITableView? {
+        var view = self.superview
+        while (view != nil && view!.isKind(of: UITableView.self) == false) {
+            view = view!.superview
+        }
+        
+        return view as? UITableView
+    }
+}
+
 extension UITableView {
     var swipeCells: [SwipeTableViewCell] {
         return visibleCells.compactMap({ $0 as? SwipeTableViewCell })
@@ -62,7 +73,7 @@ extension UIScrollView {
 extension UIPanGestureRecognizer {
     func elasticTranslation(in view: UIView?, withLimit limit: CGSize, fromOriginalCenter center: CGPoint, applyingRatio ratio: CGFloat = 0.20) -> CGPoint {
         let translation = self.translation(in: view)
-
+        
         guard let sourceView = self.view else {
             return translation
         }
@@ -75,7 +86,7 @@ extension UIPanGestureRecognizer {
         let scale: (x: CGFloat, y: CGFloat) = (updatedCenter.x < sourceView.bounds.midX ? -1 : 1, updatedCenter.y < sourceView.bounds.midY ? -1 : 1)
         let x = updatedCenter.x - (distanceFromCenter.width > limit.width ? inverseRatio * (distanceFromCenter.width - limit.width) * scale.x : 0)
         let y = updatedCenter.y - (distanceFromCenter.height > limit.height ? inverseRatio * (distanceFromCenter.height - limit.height) * scale.y : 0)
-
+        
         return CGPoint(x: x, y: y)
     }
 }

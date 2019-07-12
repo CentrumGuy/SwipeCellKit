@@ -11,7 +11,7 @@ class SwipeActionButton: UIButton {
     var spacing: CGFloat = 8
     var shouldHighlight = true
     var highlightedBackgroundColor: UIColor?
-
+    
     var maximumImageHeight: CGFloat = 0
     var verticalAlignment: SwipeVerticalAlignment = .centerFirstBaseline
     
@@ -24,7 +24,7 @@ class SwipeActionButton: UIButton {
         let contentRect = self.contentRect(forBounds: bounds)
         let titleHeight = titleBoundingRect(with: verticalAlignment == .centerFirstBaseline ? CGRect.infinite.size : contentRect.size).integral.height
         let totalHeight = imageHeight + titleHeight + currentSpacing
-
+        
         return contentRect.center(size: CGSize(width: contentRect.width, height: totalHeight))
     }
     
@@ -40,13 +40,13 @@ class SwipeActionButton: UIButton {
     
     convenience init(action: SwipeAction) {
         self.init(frame: .zero)
-
+        
         contentHorizontalAlignment = .center
         
         tintColor = action.textColor ?? .white
         let highlightedTextColor = action.highlightedTextColor ?? tintColor
         highlightedBackgroundColor = action.highlightedBackgroundColor ?? UIColor.black.withAlphaComponent(0.1)
-
+        
         titleLabel?.font = action.font ?? UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.medium)
         titleLabel?.textAlignment = .center
         titleLabel?.lineBreakMode = .byWordWrapping

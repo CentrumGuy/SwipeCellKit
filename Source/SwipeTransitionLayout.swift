@@ -15,7 +15,7 @@ protocol SwipeTransitionLayout {
     func visibleWidthsForViews(with context: ActionsViewLayoutContext) -> [CGFloat]
 }
 
-// MARK: - Layout Context 
+// MARK: - Layout Context
 
 struct ActionsViewLayoutContext {
     let numberOfActions: Int
@@ -41,7 +41,7 @@ struct ActionsViewLayoutContext {
     }
 }
 
-// MARK: - Supported Layout Implementations 
+// MARK: - Supported Layout Implementations
 
 class BorderTransitionLayout: SwipeTransitionLayout {
     func container(view: UIView, didChangeVisibleWidthWithContext context: ActionsViewLayoutContext) {
@@ -55,7 +55,7 @@ class BorderTransitionLayout: SwipeTransitionLayout {
     func visibleWidthsForViews(with context: ActionsViewLayoutContext) -> [CGFloat] {
         let diff = context.visibleWidth - context.contentSize.width
         let visibleWidth = context.contentSize.width / CGFloat(context.numberOfActions) + diff
-
+        
         // visible widths are all the same regardless of the action view position
         return (0..<context.numberOfActions).map({ _ in visibleWidth })
     }
