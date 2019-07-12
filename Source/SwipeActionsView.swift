@@ -184,8 +184,8 @@ class SwipeActionsView: UIView {
     }
     
     func buttonEdgeInsets(fromOptions options: SwipeOptions) -> UIEdgeInsets {
-        let leftPadding = options.buttonPaddingLeft ?? 8
-        let rightPadding = options.buttonPaddingRight ?? 8
+        let leftPadding = options.buttonPaddingLeft ?? 16
+        let rightPadding = options.buttonPaddingRight ?? 16
         return UIEdgeInsets(top: 8, left: leftPadding, bottom: 8, right: rightPadding)
     }
     
