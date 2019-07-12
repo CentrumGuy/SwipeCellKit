@@ -24,7 +24,7 @@ class SwipeActionsView: UIView {
     var expansionDelegate: SwipeExpanding? {
         return options.expansionDelegate ?? (expandableAction?.hasBackgroundColor == false ? ScaleAndAlphaExpansion.default : nil)
     }
-
+    
     weak var safeAreaInsetView: UIView?
     let orientation: SwipeActionsOrientation
     let actions: [SwipeAction]
@@ -42,14 +42,14 @@ class SwipeActionsView: UIView {
         guard let scrollView = self.safeAreaInsetView else { return 0 }
         return orientation == .left ? scrollView.safeAreaInsets.left : scrollView.safeAreaInsets.right
     }
-
+    
     var visibleWidth: CGFloat = 0 {
         didSet {
             // If necessary, adjust for safe areas
             visibleWidth = max(0, visibleWidth - safeAreaMargin)
-
+            
             let preLayoutVisibleWidths = transitionLayout.visibleWidthsForViews(with: layoutContext)
-
+            
             layoutContext = ActionsViewLayoutContext.newContext(for: self)
             
             transitionLayout.container(view: self, didChangeVisibleWidthWithContext: layoutContext)
@@ -61,11 +61,11 @@ class SwipeActionsView: UIView {
                                       newWidths: transitionLayout.visibleWidthsForViews(with: layoutContext))
         }
     }
-
+    
     var preferredWidth: CGFloat {
         return minimumButtonWidth * CGFloat(actions.count) + safeAreaMargin
     }
-
+    
     var contentSize: CGSize {
         if options.expansionStyle?.elasticOverscroll != true || visibleWidth < preferredWidth {
             return CGSize(width: visibleWidth, height: bounds.height)
@@ -179,13 +179,13 @@ class SwipeActionsView: UIView {
     
     @objc func actionTapped(button: SwipeActionButton) {
         guard let index = buttons.firstIndex(of: button) else { return }
-
+        
         delegate?.swipeActionsView(self, didSelect: actions[index])
     }
     
     func buttonEdgeInsets(fromOptions options: SwipeOptions) -> UIEdgeInsets {
-        let leftPadding = options.buttonPaddingLeft ?? 16
-        let rightPadding = options.buttonPaddingRight ?? 16
+        let leftPadding = options.buttonPaddingLeft ?? 8
+        let rightPadding = options.buttonPaddingRight ?? 8
         return UIEdgeInsets(top: 8, left: leftPadding, bottom: 8, right: rightPadding)
     }
     
@@ -242,7 +242,7 @@ class SwipeActionsView: UIView {
     
     func notifyExpansion(expanded: Bool) {
         guard let expandedButton = buttons.last else { return }
-
+        
         expansionDelegate?.actionButton(expandedButton, didChange: expanded, otherActionButtons: buttons.dropLast().reversed())
     }
     
