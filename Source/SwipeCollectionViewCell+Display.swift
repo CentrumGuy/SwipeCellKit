@@ -51,10 +51,8 @@ extension SwipeCollectionViewCell {
      
      - parameter completion: The closure to be executed once the animation has finished. A `Boolean` argument indicates whether or not the animations actually finished before the completion handler was called.
      */
-    public func setSwipeOffset(for orientation: SwipeActionsOrientation, offset: CGFloat, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
-        setSwipeOffset(.greatestFiniteMagnitude * orientation.scale * -offset,
-                       animated: animated,
-                       completion: completion)
+    public func setSwipeOffset(for orientation: SwipeActionsOrientation, percent: CGFloat, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+        swipeController.setSwipeOffset(percent: orientation == .left ? percent : percent * -1, animated: animated, completion: completion)
     }
     
     /**
