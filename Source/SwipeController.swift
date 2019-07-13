@@ -487,38 +487,6 @@ extension SwipeController: SwipeActionsViewDelegate {
                        completion: completion)
     }
     
-    func setSwipeOffset(percent: CGFloat, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
-        guard var swipeable = self.swipeable, let actionsContainerView = self.actionsContainerView else { return }
-        
-        guard percent != 0 else {
-            hideSwipe(animated: animated, completion: completion)
-            return
-        }
-        
-        let orientation: SwipeActionsOrientation = percent > 0 ? .left : .right
-        let targetState = SwipeState(orientation: orientation)
-        
-        if swipeable.state != targetState {
-            guard showActionsView(for: orientation) else { return }
-            
-            scrollView?.hideSwipeables()
-            
-            swipeable.state = targetState
-        }
-        
-        let maxOffset = swipeable.bounds.width * orientation.scale * -1
-        let targetCenter = swipeable.bounds.midX + maxOffset * percent
-        
-        if animated {
-            animate(toOffset: targetCenter) { complete in
-                completion?(complete)
-            }
-        } else {
-            actionsContainerView.center.x = targetCenter
-            swipeable.actionsView?.visibleWidth = abs(actionsContainerView.frame.minX)
-        }
-    }
-    
     func setSwipeOffset(_ offset: CGFloat, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         guard var swipeable = self.swipeable, let actionsContainerView = self.actionsContainerView else { return }
         
