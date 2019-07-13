@@ -43,6 +43,23 @@ extension SwipeTableViewCell {
     /**
      The point at which the origin of the cell is offset from the non-swiped origin.
      
+     - pramater orientation: The orientation for which to show the swipe
+     
+     - parameter offset: A point (expressed in a value from 0...1) that is offset from the non-swiped origin.
+     
+     - parameter animated: Specify `true` to animate the transition to the new offset, `false` to make the transition immediate.
+     
+     - parameter completion: The closure to be executed once the animation has finished. A `Boolean` argument indicates whether or not the animations actually finished before the completion handler was called.
+     */
+    public func setSwipeOffset(for orientation: SwipeActionsOrientation, offset: CGFloat, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+        setSwipeOffset(.greatestFiniteMagnitude * orientation.scale * -offset,
+                       animated: animated,
+                       completion: completion)
+    }
+    
+    /**
+     The point at which the origin of the cell is offset from the non-swiped origin.
+     
      - parameter offset: A point (expressed in points) that is offset from the non-swiped origin.
      
      - parameter animated: Specify `true` to animate the transition to the new offset, `false` to make the transition immediate.
