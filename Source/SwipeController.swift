@@ -487,6 +487,12 @@ extension SwipeController: SwipeActionsViewDelegate {
                        completion: completion)
     }
     
+    func setSwipeOffset(for orientation: SwipeActionsOrientation, offset: CGFloat, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
+        setSwipeOffset(.greatestFiniteMagnitude * orientation.scale * -offset,
+                       animated: animated,
+                       completion: completion)
+    }
+    
     func setSwipeOffset(_ offset: CGFloat, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         guard var swipeable = self.swipeable, let actionsContainerView = self.actionsContainerView else { return }
         
