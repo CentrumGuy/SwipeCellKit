@@ -24,7 +24,7 @@ protocol SwipeControllerDelegate: class {
     
     func swipeController(_ controller: SwipeController, visibleRectFor scrollView: UIScrollView) -> CGRect?
     
-    func swipeController(_ controller: SwipeController)
+    func swipeController(_ controller: SwipeController, didPanWithGesture: UIPanGestureRecognizer)
     
 }
 
@@ -74,9 +74,7 @@ class SwipeController: NSObject {
             return
         }
         
-        if let indexPath = swipeable.indexPath {
-            delegate?.swipeController(self)
-        }
+        delegate?.swipeController(self, didPanWithGesture: gesture)
         
         
         switch gesture.state {

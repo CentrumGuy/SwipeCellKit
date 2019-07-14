@@ -242,7 +242,7 @@ extension SwipeCollectionViewCell: SwipeControllerDelegate {
         collectionView?.deleteItems(at: [indexPath])
     }
     
-    func swipeController(_ controller: SwipeController) {
+    func swipeController(_ controller: SwipeController, didPanWithGesture: UIPanGestureRecognizer) {
         guard let collectionView = collectionView, let indexPath = collectionView.indexPath(for: self) else {
             return
         }
