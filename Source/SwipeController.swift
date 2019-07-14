@@ -66,9 +66,7 @@ class SwipeController: NSObject {
     }
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
-        print("test HEY")
-        delegate?.swipeController(self, didPanWithGesture: gesture)
-        
+        print("testing testing AFDAFDSADFADFSA")
         guard let target = actionsContainerView, var swipeable = self.swipeable else { return }
         
         let velocity = gesture.velocity(in: target)
@@ -76,6 +74,8 @@ class SwipeController: NSObject {
         if delegate?.swipeController(self, canBeginEditingSwipeableFor: velocity.x > 0 ? .left : .right) == false {
             return
         }
+        
+        delegate?.swipeController(self, didPanWithGesture: gesture)
         
         switch gesture.state {
         case .began:
