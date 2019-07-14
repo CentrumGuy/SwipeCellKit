@@ -159,7 +159,7 @@
 				TargetAttributes = {
 					3F234AE21E44AA5E00E22A38 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8XNJ93W9ZP;
+						DevelopmentTeam = SKLTWZD2Z5;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -354,7 +354,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 8XNJ93W9ZP;
+				DEVELOPMENT_TEAM = SKLTWZD2Z5;
 				INFOPLIST_FILE = MailExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -370,7 +370,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 8XNJ93W9ZP;
+				DEVELOPMENT_TEAM = SKLTWZD2Z5;
 				INFOPLIST_FILE = MailExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
