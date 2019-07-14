@@ -66,6 +66,7 @@ class SwipeController: NSObject {
     }
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
+        print("test HEY")
         delegate?.swipeController(self, didPanWithGesture: gesture)
         
         guard let target = actionsContainerView, var swipeable = self.swipeable else { return }
