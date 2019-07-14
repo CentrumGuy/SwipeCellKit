@@ -51,6 +51,15 @@ public protocol SwipeCollectionViewCellDelegate: class {
     func collectionView(_ collectionView: UICollectionView, willBeginEditingItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation)
     
     /**
+     Tells the delegate that a collection view cell was panned.
+     
+     - parameter collectionView: The collection view object providing this information.
+     
+     - parameter indexPath: The index path of the row.
+     */
+    func collectionView(_ collectionView: UICollectionView, didPanRowAt indexPath: IndexPath)
+    
+    /**
      Tells the delegate that the collection view has left editing mode.
      
      - parameter collectionView: The collection view object providing this information.

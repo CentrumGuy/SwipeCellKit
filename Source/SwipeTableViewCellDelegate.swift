@@ -52,6 +52,15 @@ public protocol SwipeTableViewCellDelegate: class {
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation)
     
     /**
+     Tells the delegate that a table view cell was panned.
+     
+     - parameter tableView: The table view object providing this information.
+     
+     - parameter indexPath: The index path of the row.
+     */
+    func tableView(_ tableView: UITableView, didPanRowAt indexPath: IndexPath)
+    
+    /**
      Tells the delegate that the table view has left editing mode.
      
      - parameter tableView: The table view object providing this information.

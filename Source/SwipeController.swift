@@ -24,6 +24,8 @@ protocol SwipeControllerDelegate: class {
     
     func swipeController(_ controller: SwipeController, visibleRectFor scrollView: UIScrollView) -> CGRect?
     
+    func swipeController(_ controller: SwipeController)
+    
 }
 
 class SwipeController: NSObject {
@@ -71,6 +73,11 @@ class SwipeController: NSObject {
         if delegate?.swipeController(self, canBeginEditingSwipeableFor: velocity.x > 0 ? .left : .right) == false {
             return
         }
+        
+        if let indexPath = swipeable.indexPath {
+            delegate?.swipeController(self)
+        }
+        
         
         switch gesture.state {
         case .began:
