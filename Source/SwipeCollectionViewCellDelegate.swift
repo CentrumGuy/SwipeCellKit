@@ -94,6 +94,8 @@ public extension SwipeCollectionViewCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didEndEditingItemAt indexPath: IndexPath?, for orientation: SwipeActionsOrientation) {}
     
+    func collectionView(_ collectionView: UICollectionView, didPanRowAt indexPath: IndexPath) {}
+    
     func visibleRect(for collectionView: UICollectionView) -> CGRect? {
         return nil
     }

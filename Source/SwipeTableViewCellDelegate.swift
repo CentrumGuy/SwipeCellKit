@@ -95,6 +95,8 @@ public extension SwipeTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?, for orientation: SwipeActionsOrientation) {}
     
+    func tableView(_ tableView: UITableView, didPanRowAt indexPath: IndexPath) {}
+    
     func visibleRect(for tableView: UITableView) -> CGRect? {
         return nil
     }
